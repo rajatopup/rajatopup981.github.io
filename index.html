@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+.row {
+  display: flex;
+}
+
+/*Style Teks Berjalan*/
+marquee {
+  color: #24313d;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px;
+  box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.0);
+  margin-top: -10px;
+  margin-bottom: 5px;
+  border-bottom: solid 2px;
+}
+
+/*Informasi Terbaru*/
+.info {
+  font-size: 13px;
+  font-weight: bold;
+  color: #FFF;
+  font-family: arial;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.0);
+  border-radius: 20px;
+  padding: 1px;
+  background: #ffa000;
+  width: 13%;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+  margin-top: 5px;
+}
+
+.text {
+  text-align:justify;
+  color: #474747;
+  border-bottom: #8a888c solid 0.5px;
+  padding-bottom: 10px;
+  padding-left:5px;
+  padding-right:5px;
+  font-family: helvetica;
+  font-size: 13px;
+  line-height:20px;
+  margin-bottom: 20px;
+}
+
+.text1 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  font-family: arial;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  padding: 5px;
+  background: #673ab7;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+}
+
+/*Style Banner*/
+img{
+border-radius: 50px;
+}
+
+.slideshow-container {
+  position: relative;
+  margin-top: 0px;
+}
+
+/*Style Titik Tiga bawah Banner*/
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 0px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 4px;
+}
+
+.active {
+  background-color: #ffa000;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 0.5s;
+  animation-name: fade;
+  animation-duration: 0.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/*Style Icon*/
+.button {
+  padding: 5px 5px 0px 5px;
+  font-size: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  color: #ffa000;
+  background-color: #fff;
+  border: none;
+  border-radius: 15px;
+  width: 18%;
+  margin: 7px;
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.3);  
+  font-weight: bold;
+}
+
+.image {
+  border-radius: 15px;
+  width: 100%;
+}
+
+.dropdown {
+  font-size: 10px;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  width: 18%;
+  font-weight: bold;
+  display: inline;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+  z-index: 1;
+  width: auto;
+  background: #000;
+  border-radius: 10px;
+  margin-top: 23%;
+  margin-left: -11px;
+  margin-right: 6.5px;
+}
+.dropdown-content{
+  display: none;
+  position: absolute;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+  z-index: 1;
+  width: auto;
+  background: #fff;
+  border-radius: 10px;
+  margin-top: 27.5%;
+
+}
+
+
+.button:hover {background-color: #fff;color: #24313d}
+.image:hover {shadow: #fff}
+
+.button:active {
+  background-color: #fff;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.mybutton{
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.0);  
+  margin-top: 10px;
+  margin: 4px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 0px;
+  width: auto;
+  margin-bottom: 10px; 
+}  
+
+.tittle {
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  font-family: arial;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  padding: 5px;
+  background: #ffa000FF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+}
+
+.subtittle {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffff;
+  font-family: arial;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  padding: 5px;
+  background: #ffa000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+}
+
+.tooltip a {
+  cursor: none;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  max-width: 90%;
+  text-align: center;
+  border-radius: 0px;
+  position: absolute;
+  display: block;
+  z-index: 1;
+  left: 5%;
+  margin-top: 10px;
+  margin-left: 0px;
+  
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  
+}
+
+.label {
+    background-color: #ffa000;
+border-radius:100px;
+	cursor:pointer;
+	color:#ffffff;
+    font-size: 13px;
+    font-family: arial;
+	text-decoration:none;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+    font-weight: bold;
+    padding: 4px;
+    width: 50px;
+    margin-top: -20px;
+}
+
+.label:hover {background-color: #ffa000;color: #fff}
+
+.imgtool {
+margin-left: 10px;
+box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+padding-left: 0px;
+padding-right:0px;
+}
+
+.img1 {
+  flex: auto;
+  margin-right:10px;
+  margin-left:10px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  border-radius: 15px;
+  padding-top: 5px;
+  width: 10%;
+}
+
+.img2 {
+  flex: auto;
+  width: 30%;
+}
+
+.flashsale {
+  text-align: center;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+  border: #24313d solid 3px;
+  font-size: 12px;
+  margin-top: 10px;
+  background: #fff;
+  color: #ff0000;
+  border-radius: 20px;
+  width: 50%;
+  padding-bottom: 2px;
+  padding-top: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  border-radius: 20px;
+  margin-left: 0px;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);  
+}
+
+.sidenav a {
+  padding: 0px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #673ab7;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #000;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: #673ab7;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}}
+
+
+
+</style>
+
+<!--SLIDE BANNER-->
+<div class="slideshow-container">
+
+
+<div class="mySlides fade">
+  <img src="https://i.ibb.co/yQqd71G/banner-2.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="https://i.ibb.co/nQdrQLX/banner-1.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="https://i.ibb.co/nQdrQLX/banner-1.jpg" style="width:100%">
+</div>
+</div>
+
+<!--TITIK TIGA BAWAH SLIDE-->
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+   <span class="dot"></span> 
+</div>
+<!----Sip>
+
+
+
+<!--JAVA SCRIPT SLIDE-->
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 5000);
+}
+</script>
+<!----Sip>
+
+<!--Java Script Flash Sale by KIOSID-->
+<script>
+// Pasang Waktu Tujuan (Akhir)
+var countDownDate = new Date("August 10, 2021 15:37:25").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+   
+  var distance = countDownDate - now;
+    
+  // Perhitungan waktu untuk Hari, Jam, Menit dan Detik
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Yang ditampilkan diberi ID bernama id="kiosid", kalau mau ganti, ganti semua yang bernama kiosid
+  document.getElementById("kiosid").innerHTML = days + " Hari | " + hours + " Jam | "
+  + minutes + " m | " + seconds + " s ";
+    document.getElementById("kiosid").style.fontWeight = "bold";
+    
+  // Teks Ketika Hitungan Habis
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("kiosid").innerHTML = "HABIS";
+  }
+}, 1000);
+
+
+</script>
+<!----Sip--->
+
+
+<!--JAVA SCRIPT POP UP LAINNYA-->
+<script>
+function openNav() {
+  document.getElementById("lainlain").style.width = "100%";
+}
+function closeNav() {
+  document.getElementById("lainlain").style.width = "0";
+}
+</script>
+<!---Sip--->
+
+
+<!--JAVA SCRIPT POP UP INFORMASI-->
+<script>
+function bukanav() {
+  document.getElementById("info").style.width = "100%";
+}
+function tutupnav() {
+  document.getElementById("info").style.width = "0";
+}
+</script>
+<!---Sip--->
+
+
+<!--JAVA SCRIPT JAM-->
+<script>
+setInterval(myTimer, 1000);   
+function myTimer() {
+  const d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+  document.getElementById("demo").style.fontWeight = "bold";
+}
+</script>
+<!---Sip-->
+
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<!--TEKS BERJALAN-->
+<div class="mybutton">
+<center><marquee scrollamount="5">CRUZZ PEDIA Buka Jam 08.00 - 22.00</marquee></center>
+<!----Sip--->
+
+
+  <!--CS-->
+     <a style=" background-color:#ffa000;
+	border-radius:100px;
+    margin-left: 0px;
+	cursor:pointer;
+	color:#ffffff;
+    font-size: 13px;
+    font-family: arial;
+	padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+	text-decoration:none;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+    " href="https://wa.me/6285172021400"><b>Chat Admin</b></a>
+  
+  <!--JAM-->
+    <p style="
+    position: absolute;
+    display: block-inline;
+    margin-top: -20px;
+    right: 15px;
+    background-color:#ffa000;
+	border-radius:100px;
+	cursor:pointer;
+	color:#ffffff;
+    font-size: 13px;
+    font-family: arial;
+	padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+	text-decoration:none;
+    margin-left: 5px;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+    "id="demo"><b>loading...</b></p>
+    
+    <!--QRIS-->
+    <center>
+	<div class="label">
+	<center><div class="tooltip" >QRIS
+	<span class="tooltiptext">		 
+	<img class="imgtool" src="https://i.ibb.co/pXVFgfc/QRIS-5.png" width="85%" max-width="100%"> 
+    </span>
+    </center>
+</div></div></div></div>
+<!----Sip--->
+
+<!---KOTAK 1--->
+<!---BARIS 1--->
+<center>
+<center><p class="subtittle">Isi Ulang</center>
+<div class="mybutton">
+<div class="dropdown">
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/telkomsel-191283"><img class="image" src="https://i.ibb.co/M9FQg7F/pulsa.png"></a>Pulsa</button>
+
+<!---BAGIAN PULSA--->
+<div class="dropdown-content">
+
+
+
+</div></div>
+
+<!---BAGIAN INTERNET--->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/P18GGp3/paket-telpon.png">Internet</button>
+
+<div class="dropdown-content">
+<center><p class="tittle">Paket Internet</p>
+<center>
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/telkomsel-191283"><img class="image" src="https://i.ibb.co/30JVcVq/94.png"></a>Telkomsel</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/indosat-191286"><img class="image" src="https://i.ibb.co/6Y488rD/97.png"></a>Indosat</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/axis-191284"><img class="image" src="https://i.ibb.co/C0ZX9P6/95.png"></a>Axis</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/xl-191285"><img class="image" src="https://i.ibb.co/41c76Gx/96.png"></a>XL</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/smartfren-191288"><img class="image" src="https://i.ibb.co/QD6bf6T/99.png"></a>Smartfren</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/tri-191287"><img class="image" src="https://i.ibb.co/khH6P3H/100.png"></a>Three</button>
+
+</div></div>
+
+
+<!---BAGIAN TELEPON SMS--->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/Wv1gXsM/paket-sms.png">Telp/SMS</button>
+
+<div class="dropdown-content">
+<center><p class="tittle">Telepon dan SMS</p>
+<center>
+<button class="button"><a href="https://kiosid.bukaolshop.site/kategori/paket-data-154362"><img class="image" src="https://i.ibb.co/wdtj8KD/tsel.png"></a>Telkomsel</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/indosat-191292"><img class="image" src="https://i.ibb.co/JFvxkLh/isat.png"></a>Indosat</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/axis-191294"><img class="image" src="https://i.ibb.co/2t1hR2n/ax.png"></a>Axis</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/xl-191293"><img class="image" src="https://i.ibb.co/K2c5x4h/xl.png"></a>XL</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/smartfren-191295"><img class="image" src="https://i.ibb.co/D1mZqhK/smrt.png"></a>Smartfren</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/tri-191296"><img class="image" src="https://i.ibb.co/3W679tp/icon-2.png"></a>Three</button>
+
+</div></div>
+
+
+<!---BAGIAN TOPUP GAME--->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/gDBF4Dj/top-up-game.png">TopUP</button>
+
+<div class="dropdown-content">
+<center><p class="tittle">TopUp Game</p>
+<center>
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/mobile-legend-178815"><img class="image" src="https://i.ibb.co/17K6b1y/ml.png"></a>Mobile Legend</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/pubg-178816"><img class="image" src="https://i.ibb.co/gyVwzQ8/pubg.png"></a>PUBG M</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/cod-178817"><img class="image" src="https://i.ibb.co/4grjQBz/comd.png"></a>COD M</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/free-fire-178814"><img class="image" src="https://i.ibb.co/v4X7Yyy/fff.png"></a> Free Fire</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/domino-higgs-179486"><img class="image" src="https://i.ibb.co/KKhnykM/domn.png"></a> Domino</button>
+</div></div>
+
+
+<!--BARIS 2-->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/5jMB5Vx/emoney.png">Ewallet</button>
+
+<div class="dropdown-content"style="margin-top: 20px;">
+<center><p class="tittle">TopUp Uang Elektronik</p>
+<center>
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/dana-178823"><img class="image" src="https://i.ibb.co/tBmjVhh/dana.png"></a>Dana</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/shopeepay-178826"><img class="image" src="https://i.ibb.co/pynhkBh/shopeepay.png"></a>ShopeePay</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/ovo-178825"><img class="image" src="https://i.ibb.co/dDqgKJp/ovo-1.png"></a>OVO</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/gopay-178824"><img class="image" src="https://i.ibb.co/QmBKXLV/gopay.png"></a>GoPay</button>
+
+
+</div></div>
+
+
+<!---BAGIAN TAGIHAN-->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/BZ2z3mH/Tagiham.png">Tagihan</button>
+
+<div class="dropdown-content"style="margin-top: 20px;">
+<center><p class="tittle">Bayar Tagihan</p>
+<center>
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/token-178820"><img class="image" src="https://i.ibb.co/xhp6xpq/pln.png"></a>PLN</button>
+
+</div></div>
+
+<!---BAGIAN VOUCHER-->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://i.ibb.co/P4jYdc0/vocher-digital.png">Voucher</button>
+
+<div class="dropdown-content"style="margin-top: 20px;">
+<center><p class="tittle">Voucher Game</p>
+<center>
+
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/google-play-game-178829"><img class="image" src="https://i.ibb.co/Wk7cZzP/gpc.png"></a>Play Card</button>
+
+<button class="button"><a href="https://cruzzpedia.bukaolshop.site/kategori/garena-shell-178828"><img class="image" src="https://i.ibb.co/MNx088y/grn.png"></a>Garena Shell</button>
+
+</div></div>
+
+<div class="dropdown">
+<button class="button"><a onclick="openNav()"><img class="image" src="https://i.ibb.co/XtD2L5t/lainya.png"></a>Lainnya</button>
+
+
+<!--LAIN-LAIN-->
+<div id="lainlain" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><b>&times;</b></a>
+<br>
+<br>
+<center><p class="subtittle">TopUp Game</p></center>
+
+<center>
+
+</center></div></div></div>
+<!---SIP-->
+
+
+<!--INFORMASI-->
+<center><p class="subtittle">Informasi Terbaru</center></center>
+<div class="mybutton">
+<p class="info">Info</p>
+<p class="text">
+<b>2 Agustus 2021</b><br/>Halo sultan, selamat datang di Cruzz Pedia, transaksi terpantai lancar silahkan di gasss, jangan lupa untuk mmeberi ulasan pada setiap pembelian sukses, terima kasih</p>
+
+<p class="info">Info</p>
+<p class="text">
+<b>1 Agustus 2021</b><br/>Maintenance - perbaikan server</p>
+
+<div id="info" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="tutupnav()"><b>&times;</b></a>
+
+<p class="info">Info</p>
+<p class="text">
+<b>7 Agustus 2021</b><br/>Informasi lengkap sudah dibuat</p>
+
+</div>
+<center>
+<a onclick="bukanav()">
+<button class="button" style="width:100%;padding: 8px;font-size:12px;">Lainnya</button></a>
+<br>
+
+</head>
+</html>
